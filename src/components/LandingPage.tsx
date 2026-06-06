@@ -376,7 +376,7 @@ export const LandingPage: React.FC<LandingPageProps> = ({ onSelectTool }) => {
         .tool-list-item.clickable:hover {
           transform: translateY(-2px);
           border-color: var(--accent);
-          background: #ffffff;
+          background: var(--card-bg);
           box-shadow: 2px 2px 0px 0px var(--accent);
         }
 
