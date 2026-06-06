@@ -1,6 +1,6 @@
 import React, { useState, useRef, useEffect, useCallback } from 'react';
 import QRCode from 'qrcode';
-import { Upload, Download, RefreshCw, QrCode, X } from 'lucide-react';
+import { Upload, Download, RefreshCw, X } from 'lucide-react';
 import { useLanguage } from '../context/LanguageContext';
 
 type DotStyle = 'square' | 'rounded' | 'dots' | 'classy';
