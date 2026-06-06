@@ -780,6 +780,46 @@ export const LandingPage: React.FC<LandingPageProps> = ({ onSelectTool, initialT
         .photobooth-category-box {
           grid-column: 1 / -1;
         }
+
+        /* ── Mobile responsive ── */
+        @media (max-width: 540px) {
+          .landing-container {
+            padding: 24px 16px 60px;
+          }
+          .landing-hero {
+            margin-bottom: 28px;
+          }
+          .hero-title {
+            font-size: 2rem;
+          }
+          .hero-subtitle {
+            font-size: 0.92rem;
+          }
+          .landing-tabs-container {
+            gap: 8px;
+            margin-bottom: 24px;
+          }
+          .landing-tab-btn {
+            flex: 1;
+            padding: 9px 8px;
+            font-size: 0.82rem;
+            white-space: nowrap;
+            text-align: center;
+          }
+          .categories-grid-row {
+            gap: 16px;
+          }
+          .tool-description {
+            display: none;
+          }
+        }
+
+        @media (max-width: 380px) {
+          .landing-tab-btn {
+            font-size: 0.75rem;
+            padding: 8px 6px;
+          }
+        }
       `}</style>
     </div>
   );

@@ -724,6 +724,19 @@ function AppContent() {
           font-weight: 700 !important;
         }
 
+        /* ── Mobile navbar ── */
+        @media (max-width: 600px) {
+          .nav-container { padding: 0 14px; gap: 6px; }
+          .nav-tabs { padding: 3px; gap: 1px; }
+          .nav-tab-btn { padding: 8px 10px; gap: 4px; }
+          .nav-tab-btn span { display: none; }
+          .nav-actions { gap: 8px; }
+          .lang-toggle-btn { width: 38px; padding: 0; justify-content: center; }
+          .lang-toggle-btn span { display: none; }
+          .theme-toggle-btn { width: 38px; height: 38px; }
+          .lang-toggle-btn { height: 38px; }
+          .logo-text { font-size: 1.1rem; }
+        }
 
       `}</style>
     </div>
