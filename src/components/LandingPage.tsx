@@ -26,7 +26,7 @@ import {
   Timer
 } from 'lucide-react';
 
-type ActiveTab = 'web' | 'games' | 'photobooth';
+type ActiveTab = 'web' | 'games' | 'photobooth' | 'story';
 
 interface Tool {
   id: string;
@@ -267,6 +267,21 @@ export const LandingPage: React.FC<LandingPageProps> = ({ onSelectTool, initialT
           icon: Users,
         }
       ]
+    },
+    {
+      id: 'story_studio',
+      title: t('categories.story_studio.title'),
+      description: t('categories.story_studio.desc'),
+      icon: Sparkles,
+      tools: [
+        {
+          id: 'storylab',
+          name: t('toolNames.storylab'),
+          description: t('toolDescs.storylab'),
+          status: 'available',
+          icon: Sparkles,
+        }
+      ]
     }
   ];
 
@@ -280,6 +295,7 @@ export const LandingPage: React.FC<LandingPageProps> = ({ onSelectTool, initialT
     if (activeTab === 'web')        return ['design', 'dev', 'utilities'].includes(category.id ?? '');
     if (activeTab === 'games')      return ['couple', 'drinking_cat'].includes(category.id ?? '');
     if (activeTab === 'photobooth') return category.id === 'photobooth_studio';
+    if (activeTab === 'story')      return category.id === 'story_studio';
     return false;
   });
 
@@ -319,6 +335,12 @@ export const LandingPage: React.FC<LandingPageProps> = ({ onSelectTool, initialT
         >
           {t('tabs.photobooth')}
         </button>
+        <button
+          onClick={() => setActiveTab('story')}
+          className={`landing-tab-btn story-tab ${activeTab === 'story' ? 'active' : ''}`}
+        >
+          {t('tabs.stories')}
+        </button>
       </div>
 
       <main className="categories-grid-row">
@@ -331,6 +353,7 @@ export const LandingPage: React.FC<LandingPageProps> = ({ onSelectTool, initialT
                 category.id === 'couple'             ? 'couple-category-box'      :
                 category.id === 'drinking_cat'       ? 'drinking-cat-category-box':
                 category.id === 'photobooth_studio'  ? 'photobooth-category-box'  :
+                category.id === 'story_studio'       ? 'story-studio-category-box':
                 ''
               }`}
             >
@@ -776,9 +799,37 @@ export const LandingPage: React.FC<LandingPageProps> = ({ onSelectTool, initialT
           border-color: rgba(168, 85, 247, 0.2) !important;
         }
 
-        /* Photobooth category — full-width, same green accent as site */
-        .photobooth-category-box {
+        /* Photobooth & Story category — full-width, same green accent as site */
+        .photobooth-category-box, .story-studio-category-box {
           grid-column: 1 / -1;
+        }
+
+        /* Story Studio Category Box (Sunset Warm Theme!) */
+        .story-studio-category-box {
+          background: linear-gradient(135deg, rgba(255, 248, 240, 0.95) 0%, rgba(255, 235, 238, 0.95) 100%) !important;
+          border-color: rgba(239, 68, 68, 0.25) !important;
+          position: relative;
+          animation: pink-glow 3s infinite ease-in-out;
+        }
+        .story-studio-category-box .tool-list-item {
+          background-color: rgba(255, 255, 255, 0.65) !important;
+          border-color: rgba(239, 68, 68, 0.15) !important;
+        }
+        .story-studio-category-box .tool-list-item:hover {
+          background-color: rgba(255, 235, 238, 0.85) !important;
+          border-color: rgba(239, 68, 68, 0.4) !important;
+          transform: translateY(-2px);
+          box-shadow: 2px 2px 0px rgba(239, 68, 68, 0.12);
+        }
+        .story-studio-category-box .tool-icon-box {
+          background: rgba(255, 235, 238, 0.6) !important;
+          color: #EF4444 !important;
+          border-color: rgba(239, 68, 68, 0.2) !important;
+        }
+        .story-studio-category-box .compact-badge.status-active {
+          background: rgba(255, 235, 238, 0.8) !important;
+          color: #EF4444 !important;
+          border-color: rgba(239, 68, 68, 0.2) !important;
         }
 
         /* ── Mobile responsive ── */

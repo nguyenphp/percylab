@@ -13,7 +13,8 @@ export const translations = {
     tabs: {
       webTools: "🛠️ Tiện ích Web",
       games: "🎮 Trò chơi Giải trí",
-      photobooth: "📸 Photobooth"
+      photobooth: "📸 Photobooth",
+      stories: "🎬 Reels & Story"
     },
     categories: {
       design: {
@@ -39,6 +40,10 @@ export const translations = {
       photobooth_studio: {
         title: "Photobooth Studio",
         desc: "Chụp ảnh tự động theo series, chọn khung & style, xuất film strip retro ngay trên trình duyệt."
+      },
+      story_studio: {
+        title: "Phòng thiết kế Reels & Story",
+        desc: "Thiết kế story, reels, collage nghệ thuật từ hình ảnh và video của bạn."
       }
     },
     status: {
@@ -74,7 +79,8 @@ export const translations = {
       selfbooth: "selfbooth",
       filterbooth: "filterbooth",
       groupbooth: "groupbooth",
-      timerbooth: "timerbooth"
+      timerbooth: "timerbooth",
+      storylab: "storylab"
     },
     toolDescs: {
       grain: "Trình biên tập ảnh Web, áp dụng bộ lọc màu LUT và Polaroid hạt mịn.",
@@ -101,7 +107,8 @@ export const translations = {
       selfbooth: "Chọn khung → tự động đếm ngược chụp liên tiếp → chọn filter & style → xuất film strip retro.",
       filterbooth: "Chụp selfie tức thì với các bộ lọc màu film LUT đặc trưng theo phong cách retro.",
       groupbooth: "Chụp ảnh nhóm tự động với hẹn giờ, ghép layout đôi hoặc lưới 4 người.",
-      timerbooth: "Hẹn giờ chụp ảnh tự động — đặt số lượng ảnh và khoảng cách, camera tự chụp không cần chạm."
+      timerbooth: "Hẹn giờ chụp ảnh tự động — đặt số lượng ảnh và khoảng cách, camera tự chụp không cần chạm.",
+      storylab: "Thiết kế reels, stories, collage nghệ thuật phong cách Unfold từ ảnh và video."
     },
     // Base64 tool
     base64: {
@@ -252,6 +259,53 @@ export const translations = {
       sPrompt3: "Nếu được đổi người yêu với một ai đó trong phòng này, bạn chọn ai? Không trả lời uống 2 ly.",
       sPrompt4: "Thực hiện một thử thách kề vai áp má với nửa kia trong 30 giây, hoặc cả hai cùng uống 1 ly.",
       sPrompt5: "Kể ra một thói quen xấu hổ nhất khi ngủ của bạn, hoặc uống 1 ly."
+    },
+    // StoryLab tool
+    storylab: {
+      title: "storylab",
+      desc: "Tạo reels, stories và collage phong cách Unfold nghệ thuật từ hình ảnh và video của bạn.",
+      ratio: "Tỉ lệ khung hình",
+      selectTemplate: "Mẫu bố cục",
+      mediaSettings: "Cài đặt hình ảnh/video",
+      zoom: "Phóng to",
+      filter: "Bộ lọc màu",
+      addText: "Thêm chữ nghệ thuật",
+      textPlaceholder: "Nhấp đúp để chỉnh sửa...",
+      fontSize: "Cỡ chữ",
+      letterSpacing: "Khoảng cách chữ",
+      textColor: "Màu chữ",
+      opacity: "Độ mờ",
+      fontFamily: "Kiểu chữ",
+      background: "Hình nền",
+      texture: "Hiệu ứng bề mặt",
+      exportImage: "Xuất ảnh chất lượng cao (PNG)",
+      exportSuccess: "Xuất ảnh thành công! Đang tải xuống...",
+      changeMedia: "Đổi file",
+      uploadPrompt: "Thả ảnh/video vào đây hoặc nhấp để chọn",
+      noMedia: "Trống",
+      stickers: "Nhãn dán băng keo",
+      addSticker: "Thêm băng keo",
+      reset: "Đặt lại",
+      dragPrompt: "Kéo thả ảnh/video bên trong ô để căn chỉnh. Kéo thả chữ để chọn vị trí.",
+      exportWarning: "Lưu ý: Để tối ưu tốc độ xuất ảnh, video lặp sẽ được chụp frame tĩnh khi tải về.",
+      bgColor: "Nền đơn sắc",
+      bgGradient: "Nền gradient",
+      angle: "Góc xoay",
+      addTextBtn: "Thêm Text",
+      deleteText: "Xoá",
+      textureNone: "Không có",
+      textureGrain: "Hạt phim (Grain)",
+      texturePaper: "Giấy nhàu (Paper)",
+      textureScratches: "Xước phim (Scratches)",
+      cameraBtn: "📷 Chụp / Quay trực tiếp",
+      importMultiBtn: "📥 Nhập nhiều tệp",
+      cameraModalTitle: "Camera Trực Tiếp",
+      takePhoto: "Chụp ảnh",
+      startRecord: "Quay video",
+      stopRecord: "Dừng quay",
+      switchCamera: "Đổi Camera",
+      recordingTime: "Đang quay:",
+      cameraError: "Không thể truy cập camera. Vui lòng cấp quyền trình duyệt."
     }
   },
   en: {
@@ -268,7 +322,8 @@ export const translations = {
     tabs: {
       webTools: "🛠️ Web Tools",
       games: "🎮 Fun Games",
-      photobooth: "📸 Photobooth"
+      photobooth: "📸 Photobooth",
+      stories: "🎬 Reels & Story"
     },
     categories: {
       design: {
@@ -294,6 +349,10 @@ export const translations = {
       photobooth_studio: {
         title: "Photobooth Studio",
         desc: "Auto-capture photo sequences, pick frames & styles, and export retro film strips — right in your browser."
+      },
+      story_studio: {
+        title: "Story & Reels Studio",
+        desc: "Design gorgeous stories, reels, and collages from your photos and videos."
       }
     },
     status: {
@@ -329,7 +388,8 @@ export const translations = {
       selfbooth: "selfbooth",
       filterbooth: "filterbooth",
       groupbooth: "groupbooth",
-      timerbooth: "timerbooth"
+      timerbooth: "timerbooth",
+      storylab: "storylab"
     },
     toolDescs: {
       grain: "Web photo editor, LUT presets, and Polaroid style film grain effects.",
@@ -356,7 +416,8 @@ export const translations = {
       selfbooth: "Pick a frame → auto-countdown capture → choose filter & style → export retro film strip.",
       filterbooth: "Instant selfies with cinematic film LUT filters and retro-style color grading.",
       groupbooth: "Group photo timer with duo or 4-up grid layouts — perfect for parties.",
-      timerbooth: "Timer-based auto-capture — set shot count and interval, camera fires hands-free."
+      timerbooth: "Timer-based auto-capture — set shot count and interval, camera fires hands-free.",
+      storylab: "Design gorgeous Unfold-style reels, stories, and collages from photos and videos."
     },
     // Base64 tool
     base64: {
@@ -507,6 +568,53 @@ export const translations = {
       sPrompt3: "If you had to swap partners with anyone in this room, who would it be? Or drink 2 cups.",
       sPrompt4: "Nuzzle cheek-to-cheek with your partner for 30 seconds, or both drink 1 cup.",
       sPrompt5: "Tell your most embarrassing sleeping habit, or drink 1 cup."
+    },
+    // StoryLab tool
+    storylab: {
+      title: "storylab",
+      desc: "Create beautiful, Unfold-style reels, stories, and collages from your photos and videos.",
+      ratio: "Aspect Ratio",
+      selectTemplate: "Layout Template",
+      mediaSettings: "Media Settings",
+      zoom: "Scale",
+      filter: "Color Filter",
+      addText: "Add Typography",
+      textPlaceholder: "Double-click to edit...",
+      fontSize: "Font Size",
+      letterSpacing: "Letter Spacing",
+      textColor: "Text Color",
+      opacity: "Opacity",
+      fontFamily: "Font Family",
+      background: "Background",
+      texture: "Texture Overlay",
+      exportImage: "Export High-Res (PNG)",
+      exportSuccess: "Export successful! Downloading...",
+      changeMedia: "Change file",
+      uploadPrompt: "Drop photo/video here or click to browse",
+      noMedia: "Empty",
+      stickers: "Tape Stickers",
+      addSticker: "Add Tape",
+      reset: "Reset",
+      dragPrompt: "Drag media inside slots to pan. Drag text overlays to reposition.",
+      exportWarning: "Note: For fast downloads, looping videos will be exported as static frames.",
+      bgColor: "Solid Color",
+      bgGradient: "Gradient",
+      angle: "Angle",
+      addTextBtn: "Add Text",
+      deleteText: "Delete",
+      textureNone: "None",
+      textureGrain: "Film Grain",
+      texturePaper: "Crumpled Paper",
+      textureScratches: "Dust & Scratches",
+      cameraBtn: "📷 Capture Live",
+      importMultiBtn: "📥 Import Multiple",
+      cameraModalTitle: "Live Camera",
+      takePhoto: "Take Photo",
+      startRecord: "Record Video",
+      stopRecord: "Stop Recording",
+      switchCamera: "Switch Camera",
+      recordingTime: "Recording:",
+      cameraError: "Unable to access camera. Please grant permission."
     }
   }
 };

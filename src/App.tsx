@@ -37,6 +37,7 @@ import {
 import { GrainTool } from './tools/GrainTool';
 import { FrameTool } from './tools/FrameTool';
 import { PolafiyTool } from './tools/PolafiyTool';
+import { StoryLabTool } from './tools/StoryLabTool';
 import { DeeplinkTool } from './tools/DeeplinkTool';
 import { SplashgenTool } from './tools/SplashgenTool';
 import { JsondiffTool } from './tools/JsondiffTool';
@@ -62,6 +63,7 @@ const dropdownTools = [
   { id: 'gradio', icon: Sparkles, statusClass: 'active', available: true },
   { id: 'frame', icon: Layers, statusClass: 'active', available: true },
   { id: 'polafiy', icon: Image, statusClass: 'active', available: true },
+  { id: 'storylab', icon: Sparkles, statusClass: 'active', available: true },
   { id: 'iconset', icon: Smartphone, statusClass: 'active', available: true },
   { id: 'base64', icon: Code, statusClass: 'active', available: true },
   { id: 'deeplink', icon: SmartphoneNfc, statusClass: 'active', available: true },
@@ -83,7 +85,7 @@ const dropdownTools = [
 function AppContent() {
   const { lang, setLang, t } = useLanguage();
   const [activeTool, setActiveTool] = useState<string>('landing');
-  const [initialTab, setInitialTab] = useState<'web' | 'games' | 'photobooth'>('web');
+  const [initialTab, setInitialTab] = useState<'web' | 'games' | 'photobooth' | 'story'>('web');
   const [theme, setTheme] = useState<'light' | 'dark'>(() => {
     const saved = localStorage.getItem('percylab-theme');
     if (saved === 'light' || saved === 'dark') return saved;
@@ -120,11 +122,14 @@ function AppContent() {
         'splashgen', 'jsondiff', 'img2pdf',
         'esign', 'bgremove', 'qrcode', 'timestamp',
         'foodmatcher', 'deciderwheel', 'scratchcard', 'drinkingdice', 'drinkingcards',
-        'selfbooth', 'timerbooth', 'filterbooth', 'groupbooth'
+        'selfbooth', 'timerbooth', 'filterbooth', 'groupbooth', 'storylab'
       ];
       if (hash === 'photobooth') {
         setActiveTool('landing');
         setInitialTab('photobooth');
+      } else if (hash === 'story') {
+        setActiveTool('landing');
+        setInitialTab('story');
       } else if (validTools.includes(hash)) {
         setActiveTool(hash);
         setInitialTab('web');
@@ -303,6 +308,7 @@ function AppContent() {
         {activeTool === 'timerbooth' && <TimerBoothTool />}
         {activeTool === 'filterbooth' && <FilterBoothTool />}
         {activeTool === 'groupbooth' && <GroupBoothTool />}
+        {activeTool === 'storylab' && <StoryLabTool />}
       </main>
 
       {/* Footer */}
