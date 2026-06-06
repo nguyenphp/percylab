@@ -7,9 +7,13 @@ export const translations = {
     themeLight: "Chế độ sáng",
     themeDark: "Chế độ tối",
     heroBadge: "percylab.space",
-    heroTitlePre: "Experimental Web",
-    heroTitlePost: "Tools",
-    heroSubtitle: "Bộ công cụ hỗ trợ thiết kế, phát triển di động và tiện ích lập trình gọn nhẹ, tinh tế cho GenZ.",
+    heroTitlePre: "PercyLab",
+    heroTitlePost: "Space",
+    heroSubtitle: "Không chỉ là các công cụ Dev & Design hữu ích, đây còn là thiên đường trò chơi party, couple vui nhộn dành cho thế hệ GenZ.",
+    tabs: {
+      webTools: "🛠️ Tiện ích Web",
+      games: "🎮 Trò chơi Giải trí"
+    },
     categories: {
       design: {
         title: "Design & Color",
@@ -22,6 +26,14 @@ export const translations = {
       utilities: {
         title: "Office & Utilities",
         desc: "Tiện ích văn phòng, định dạng tài liệu và chuyển đổi đa năng"
+      },
+      couple: {
+        title: "Couple Games",
+        desc: "Trò chơi hẹn hò, ăn uống và việc nhà ngọt ngào cho các cặp đôi"
+      },
+      drinking_cat: {
+        title: "Party Games",
+        desc: "Các trò chơi vòng quay sát phạt, xúc xắc ăn nhậu tưng bừng cùng hội bạn."
       }
     },
     status: {
@@ -47,7 +59,12 @@ export const translations = {
       esign: "esign",
       bgremove: "bgremove",
       qrcode: "qrcode",
-      timestamp: "timestamp"
+      timestamp: "timestamp",
+      foodmatcher: "foodmatcher",
+      deciderwheel: "deciderwheel",
+      scratchcard: "scratchcard",
+      drinkingdice: "drinkingdice",
+      drinkingcards: "drinkingcards"
     },
     toolDescs: {
       grain: "Trình biên tập ảnh Web, áp dụng bộ lọc màu LUT và Polaroid hạt mịn.",
@@ -64,7 +81,12 @@ export const translations = {
       esign: "Tạo chữ ký số vẽ tay hoặc nhập tên, tải PNG nền trong suốt.",
       bgremove: "Xóa nền ảnh tự động bằng AI ngay trên trình duyệt, không cần API key.",
       qrcode: "Tạo mã QR tuỳ chỉnh với nhiều kiểu dáng, màu sắc và logo thương hiệu.",
-      timestamp: "Chuyển đổi Unix timestamp sang ngày giờ và ngược lại, hỗ trợ đa múi giờ."
+      timestamp: "Chuyển đổi Unix timestamp sang ngày giờ và ngược lại, hỗ trợ đa múi giờ.",
+      foodmatcher: "Quẹt tìm điểm chung món ăn/ẩm thực cho các cặp đôi.",
+      deciderwheel: "Vòng quay quyết định ăn gì/việc nhà kèm theo quyền phủ quyết thú vị.",
+      scratchcard: "Thẻ cào ảo ẩn giấu thử thách, hoạt động hẹn hò và phần thưởng ngọt ngào.",
+      drinkingdice: "Gieo xúc xắc ăn nhậu sát phạt cực kỳ lầy lội cùng bạn bè.",
+      drinkingcards: "Rút những thẻ bài thử thách ngẫu nhiên lầy lội hoặc lãng mạn."
     },
     // Base64 tool
     base64: {
@@ -128,6 +150,93 @@ export const translations = {
       btnGenerate: "Tạo và Tải xuống bộ AppIcon (.zip)",
       generateSuccess: "Đã khởi tạo bộ Icon thành công! Đang tải xuống...",
       invalidImage: "Vui lòng tải lên ảnh PNG hợp lệ."
+    },
+    // Couple tool
+    couple: {
+      title: "couple games",
+      desc: "Hâm nóng tình cảm với bộ công cụ hẹn hò: Quẹt chọn món ăn, vòng quay phân chia việc nhà/ăn uống và thẻ cào tình yêu bí mật.",
+      tabTinder: "Quẹt Món Ăn",
+      tabWheel: "Vòng Quay Ăn Gì",
+      tabScratch: "Thẻ Cào Tình Yêu",
+      
+      // Tinder Food Matcher
+      tinderSetupTitle: "Thiết Lập Người Chơi",
+      tinderPlayerA: "Tên Bạn Thứ Nhất",
+      tinderPlayerB: "Tên Bạn Thứ Hai",
+      tinderCategory: "Chọn thể loại món ăn",
+      tinderStartBtn: "Bắt đầu quẹt món!",
+      tinderSwipeTurnPrompt: "Lượt của {name}",
+      tinderLikeBtn: "Thích (Quẹt Phải)",
+      tinderDislikeBtn: "Ghét (Quẹt Trái)",
+      tinderPassPhonePrompt: "Đã xong lượt của {name}!",
+      tinderPassPhoneDesc: "Hãy chuyển điện thoại/máy tính cho {nextName} để bắt đầu quẹt nhé.",
+      tinderNextTurnBtn: "Tiếp tục lượt {nextName}",
+      tinderResultTitle: "Điểm Chung Ẩn Giấu! ❤️",
+      tinderNoMatch: "Rất tiếc, hai bạn không quẹt chung món nào rồi! 😢",
+      tinderTryWheel: "Thử quay vòng quay quyết định nhé!",
+      tinderMatchCount: "Hai bạn cùng thích {count} món ăn này:",
+      tinderPlayAgain: "Chơi lại từ đầu",
+
+      // Food Wheel
+      wheelTitle: "Vòng Quay Quyết Định",
+      wheelDesc: "Quay để chọn ngẫu nhiên món ăn hoặc việc nhà. Mỗi người có 1 Quyền phủ quyết!",
+      wheelSpinBtn: "Quay ngay!",
+      wheelSpinning: "Đang quay...",
+      wheelResult: "Kết quả dừng lại ở: {item}",
+      wheelVetoBtn: "Phủ quyết ({name} - Còn {count})",
+      wheelVetoedMsg: "{name} đã phủ quyết món {item}! Đang quay lại...",
+      wheelNoVetoes: "Hết lượt phủ quyết rồi! Tối nay phải đi ăn món này thôi.",
+      wheelEditList: "Chỉnh sửa danh sách các món:",
+      wheelResetList: "Khôi phục mặc định",
+      wheelSaveList: "Lưu danh sách",
+
+      // Scratch Card
+      scratchTitle: "Thẻ Cào May Mắn",
+      scratchDesc: "Dùng chuột/tay vuốt để cào lớp bạc và mở ra phần thưởng hoặc thử thách ngọt ngào.",
+      scratchCardChores: "Việc nhà quyết định",
+      scratchCardActivity: "Hoạt động hẹn hò",
+      scratchCardReward: "Phần thưởng ngọt ngào",
+      scratchCompleted: "Đã mở khóa thẻ cào!",
+      scratchInstruction: "Cào trên 60% diện tích để đọc nội dung",
+      scratchRevealAll: "Mở tất cả thẻ"
+    },
+    drinkingdice: {
+      title: "Xúc Xắc Sát Phạt",
+      desc: "Trò chơi gieo xúc xắc ăn nhậu lầy lội, quyết định hình phạt cực vui cùng bạn bè.",
+      rollBtn: "Gieo Xúc Xắc! 🎲",
+      rolling: "Đang xoay...",
+      resultPrompt: "Kết quả xúc xắc:",
+      rule1: "Bạn uống 1 ly! 🍺",
+      rule2: "Bên trái uống 1 ly! 👈",
+      rule3: "Bên phải uống 1 ly! 👉",
+      rule4: "Cả bàn cùng uống! 🍻",
+      rule5: "Chỉ định 1 người uống! 🎯",
+      rule6: "Qua lượt! Hú hồn nha 😇"
+    },
+    drinkingcards: {
+      title: "Thẻ Bài Thử Thách",
+      desc: "Rút những thẻ bài thử thách độc lạ, lầy lội hoặc lãng mạn cho các cặp đôi và hội bạn.",
+      cardCasual: "Nhẹ nhàng",
+      cardCrazy: "Lầy lội",
+      cardSpicy: "Spicy 18+",
+      drawCardBtn: "Rút Thẻ Bài Ngẫu Nhiên 🃏",
+      clickToFlip: "Bấm vào thẻ bài để lật xem nội dung",
+      backToDeck: "Rút thẻ khác",
+      cPrompt1: "Người có chiều cao thấp nhất bàn uống 1 ly.",
+      cPrompt2: "Người mặc áo màu đen uống 1 ly.",
+      cPrompt3: "Kể tên 3 thứ có màu hồng trong 5 giây, không kịp uống 1 ly.",
+      cPrompt4: "Ai dùng điện thoại gần nhất uống 1 ly.",
+      cPrompt5: "Khen ngợi người đối diện 1 câu chân thành, không làm được uống 1 ly.",
+      crPrompt1: "Nhắm mắt lại và đoán xem ai vừa chạm vào vai bạn. Đoán sai uống 2 ly.",
+      crPrompt2: "Kể tên mối tình đầu của bạn hoặc uống cạn ly.",
+      crPrompt3: "Cho người bên phải xem tin nhắn gần nhất trong Messenger của bạn, hoặc uống 1 ly.",
+      crPrompt4: "Để người bên trái vẽ một hình cute lên má bạn bằng son/bút, hoặc uống 2 ly.",
+      crPrompt5: "Hát một đoạn nhạc thiếu nhi bằng giọng điệu opera, không hát uống 1 ly.",
+      sPrompt1: "Tiết lộ bộ phận gợi cảm nhất của người yêu/nửa kia mà bạn thích, hoặc uống 2 ly.",
+      sPrompt2: "Nhắn tin cho người yêu cũ nói 'Em/Anh nhớ anh/em' hoặc uống cạn ly.",
+      sPrompt3: "Nếu được đổi người yêu với một ai đó trong phòng này, bạn chọn ai? Không trả lời uống 2 ly.",
+      sPrompt4: "Thực hiện một thử thách kề vai áp má với nửa kia trong 30 giây, hoặc cả hai cùng uống 1 ly.",
+      sPrompt5: "Kể ra một thói quen xấu hổ nhất khi ngủ của bạn, hoặc uống 1 ly."
     }
   },
   en: {
@@ -138,9 +247,13 @@ export const translations = {
     themeLight: "Light Mode",
     themeDark: "Dark Mode",
     heroBadge: "percylab.space",
-    heroTitlePre: "Experimental Web",
-    heroTitlePost: "Tools",
-    heroSubtitle: "A collection of lightweight, beautiful developer and design tools tailored for GenZ.",
+    heroTitlePre: "PercyLab",
+    heroTitlePost: "Space",
+    heroSubtitle: "Not just useful Dev & Design utilities, but also a sweet paradise of fun party and couple games tailored for GenZ.",
+    tabs: {
+      webTools: "🛠️ Web Tools",
+      games: "🎮 Fun Games"
+    },
     categories: {
       design: {
         title: "Design & Color",
@@ -153,6 +266,14 @@ export const translations = {
       utilities: {
         title: "Office & Utilities",
         desc: "Document compilers, formatters, and general productive tools"
+      },
+      couple: {
+        title: "Couple Games",
+        desc: "Fun decision-making and bonding games for dating couples"
+      },
+      drinking_cat: {
+        title: "Party Games",
+        desc: "Fun drinking, truth-or-dare, and rolling dice games for group parties."
       }
     },
     status: {
@@ -178,7 +299,12 @@ export const translations = {
       esign: "esign",
       bgremove: "bgremove",
       qrcode: "qrcode",
-      timestamp: "timestamp"
+      timestamp: "timestamp",
+      foodmatcher: "foodmatcher",
+      deciderwheel: "deciderwheel",
+      scratchcard: "scratchcard",
+      drinkingdice: "drinkingdice",
+      drinkingcards: "drinkingcards"
     },
     toolDescs: {
       grain: "Web photo editor, LUT presets, and Polaroid style film grain effects.",
@@ -195,7 +321,12 @@ export const translations = {
       esign: "Create digital signatures by drawing or typing — download transparent PNG.",
       bgremove: "Remove image backgrounds instantly with AI — no API key, runs in-browser.",
       qrcode: "Generate custom QR codes with multiple styles, colors, and brand logos.",
-      timestamp: "Convert Unix timestamps to human-readable dates and back, with timezone support."
+      timestamp: "Convert Unix timestamps to human-readable dates and back, with timezone support.",
+      foodmatcher: "Swipe cards to find matching food preferences with your partner.",
+      deciderwheel: "Chore and food decision wheel with interactive veto power.",
+      scratchcard: "Scratch-off cards revealing sweet rewards, chores, and dating ideas.",
+      drinkingdice: "Fun drinking dice roller with custom rules and 3D animations.",
+      drinkingcards: "Romantic and crazy truth-or-dare challenge cards deck."
     },
     // Base64 tool
     base64: {
@@ -259,6 +390,93 @@ export const translations = {
       btnGenerate: "Generate & Download AppIcon (.zip)",
       generateSuccess: "Icon set generated successfully! Downloading...",
       invalidImage: "Please upload a valid PNG image."
+    },
+    // Couple tool
+    couple: {
+      title: "couple games",
+      desc: "Heat up your relationship with interactive dating tools: swipe for food matches, spin the chore/dining wheel, and scratch love cards.",
+      tabTinder: "Food Matcher",
+      tabWheel: "Decider Wheel",
+      tabScratch: "Love Scratch Cards",
+      
+      // Tinder Food Matcher
+      tinderSetupTitle: "Player Setup",
+      tinderPlayerA: "First Player Name",
+      tinderPlayerB: "Second Player Name",
+      tinderCategory: "Select Food Category",
+      tinderStartBtn: "Start Swiping!",
+      tinderSwipeTurnPrompt: "{name}'s Turn",
+      tinderLikeBtn: "Like (Swipe Right)",
+      tinderDislikeBtn: "Dislike (Swipe Left)",
+      tinderPassPhonePrompt: "{name}'s turn is done!",
+      tinderPassPhoneDesc: "Please pass the device to {nextName} to start their swiping.",
+      tinderNextTurnBtn: "Continue to {nextName}",
+      tinderResultTitle: "Matches Found! ❤️",
+      tinderNoMatch: "Aww, no food matches! 😢",
+      tinderTryWheel: "Let's spin the wheel to decide instead!",
+      tinderMatchCount: "You both liked these {count} foods:",
+      tinderPlayAgain: "Start Over",
+
+      // Food Wheel
+      wheelTitle: "Decision Wheel",
+      wheelDesc: "Spin to randomly select food or chore. Each player gets 1 Veto Power!",
+      wheelSpinBtn: "Spin Now!",
+      wheelSpinning: "Spinning...",
+      wheelResult: "It landed on: {item}",
+      wheelVetoBtn: "Veto ({name} - {count} left)",
+      wheelVetoedMsg: "{name} used veto on {item}! Spinning again...",
+      wheelNoVetoes: "No vetoes left! You must stick to the result.",
+      wheelEditList: "Edit Wheel Items:",
+      wheelResetList: "Reset Default",
+      wheelSaveList: "Save Items",
+
+      // Scratch Card
+      scratchTitle: "Lucky Scratch Cards",
+      scratchDesc: "Click/drag to scratch off the cover and reveal sweet tasks or dating rewards.",
+      scratchCardChores: "House Chores",
+      scratchCardActivity: "Dating Activity",
+      scratchCardReward: "Sweet Reward",
+      scratchCompleted: "Card revealed!",
+      scratchInstruction: "Scratch at least 60% of the surface to reveal",
+      scratchRevealAll: "Reveal All Cards"
+    },
+    drinkingdice: {
+      title: "Drinking Dice",
+      desc: "Roll the 3D drinking dice to decide hilarious punishments and drinks with friends.",
+      rollBtn: "Roll the Dice! 🎲",
+      rolling: "Rolling...",
+      resultPrompt: "Dice result:",
+      rule1: "You drink 1 cup! 🍺",
+      rule2: "Person on your left drinks! 👈",
+      rule3: "Person on your right drinks! 👉",
+      rule4: "Everyone drinks! 🍻",
+      rule5: "Designate 1 person to drink! 🎯",
+      rule6: "Pass! Lucky you 😇"
+    },
+    drinkingcards: {
+      title: "Challenge Cards",
+      desc: "Draw hilarious, crazy, or romantic truth-or-dare challenge cards with your friends.",
+      cardCasual: "Casual",
+      cardCrazy: "Crazy Dares",
+      cardSpicy: "Spicy 18+",
+      drawCardBtn: "Draw a Random Card 🃏",
+      clickToFlip: "Click the card to flip and reveal",
+      backToDeck: "Draw another card",
+      cPrompt1: "The shortest person at the table drinks 1 cup.",
+      cPrompt2: "Anyone wearing black clothes drinks 1 cup.",
+      cPrompt3: "Name 3 pink items in 5 seconds, or drink 1 cup.",
+      cPrompt4: "Whoever used their phone most recently drinks 1 cup.",
+      cPrompt5: "Give the person opposite you a sincere compliment, or drink 1 cup.",
+      crPrompt1: "Close your eyes and guess who touches your shoulder. If wrong, drink 2 cups.",
+      crPrompt2: "Reveal the name of your first love, or chug your drink.",
+      crPrompt3: "Show your most recent Messenger chat to the person on your right, or drink 1 cup.",
+      crPrompt4: "Let the person on your left draw a cute shape on your cheek, or drink 2 cups.",
+      crPrompt5: "Sing a kids song in an opera voice, or drink 1 cup.",
+      sPrompt1: "Reveal the sexiest physical feature of your partner, or drink 2 cups.",
+      sPrompt2: "Text your ex 'I miss you' right now, or chug your drink.",
+      sPrompt3: "If you had to swap partners with anyone in this room, who would it be? Or drink 2 cups.",
+      sPrompt4: "Nuzzle cheek-to-cheek with your partner for 30 seconds, or both drink 1 cup.",
+      sPrompt5: "Tell your most embarrassing sleeping habit, or drink 1 cup."
     }
   }
 };

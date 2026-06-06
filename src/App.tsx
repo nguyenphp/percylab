@@ -25,7 +25,12 @@ import {
   FileText,
   Scissors,
   QrCode,
-  Clock
+  Clock,
+  Heart,
+  RotateCw,
+  Gift,
+  Beer,
+  Award
 } from 'lucide-react';
 
 import { GrainTool } from './tools/GrainTool';
@@ -39,6 +44,11 @@ import { BgRemoveTool } from './tools/BgRemoveTool';
 import { EsignTool } from './tools/EsignTool';
 import { QRTool } from './tools/QRTool';
 import { TimestampTool } from './tools/TimestampTool';
+import { FoodMatcherTool } from './tools/FoodMatcherTool';
+import { DeciderWheelTool } from './tools/DeciderWheelTool';
+import { ScratchCardTool } from './tools/ScratchCardTool';
+import { DrinkingDiceTool } from './tools/DrinkingDiceTool';
+import { DrinkingCardsTool } from './tools/DrinkingCardsTool';
 import logoImg from './assets/logo.png';
 
 const dropdownTools = [
@@ -56,7 +66,12 @@ const dropdownTools = [
   { id: 'esign', icon: FileText, statusClass: 'active', available: true },
   { id: 'bgremove', icon: Scissors, statusClass: 'active', available: true },
   { id: 'qrcode', icon: QrCode, statusClass: 'active', available: true },
-  { id: 'timestamp', icon: Clock, statusClass: 'active', available: true }
+  { id: 'timestamp', icon: Clock, statusClass: 'active', available: true },
+  { id: 'foodmatcher', icon: Heart, statusClass: 'active', available: true },
+  { id: 'deciderwheel', icon: RotateCw, statusClass: 'active', available: true },
+  { id: 'scratchcard', icon: Gift, statusClass: 'active', available: true },
+  { id: 'drinkingdice', icon: Beer, statusClass: 'active', available: true },
+  { id: 'drinkingcards', icon: Award, statusClass: 'active', available: true }
 ];
 
 function AppContent() {
@@ -96,7 +111,8 @@ function AppContent() {
         'iconset', 'palette', 'gradio', 'base64', 
         'grain', 'frame', 'polafiy', 'deeplink', 
         'splashgen', 'jsondiff', 'img2pdf',
-        'esign', 'bgremove', 'qrcode', 'timestamp'
+        'esign', 'bgremove', 'qrcode', 'timestamp',
+        'foodmatcher', 'deciderwheel', 'scratchcard', 'drinkingdice', 'drinkingcards'
       ];
       if (validTools.includes(hash)) {
         setActiveTool(hash);
@@ -147,10 +163,12 @@ function AppContent() {
     return name.includes(query) || desc.includes(query);
   });
 
+  const isGameActive = ['foodmatcher', 'deciderwheel', 'scratchcard', 'drinkingdice', 'drinkingcards'].includes(activeTool);
+
   return (
     <div className="app-shell">
       {/* Top Navbar */}
-      <nav className="navbar glass">
+      <nav className={`navbar glass ${isGameActive ? 'game-mode' : ''}`}>
         <div className="nav-container">
           <div className="nav-logo" onClick={goHome}>
             <div className="logo-icon">
@@ -263,6 +281,11 @@ function AppContent() {
         {activeTool === 'bgremove' && <BgRemoveTool />}
         {activeTool === 'qrcode' && <QRTool />}
         {activeTool === 'timestamp' && <TimestampTool />}
+        {activeTool === 'foodmatcher' && <FoodMatcherTool />}
+        {activeTool === 'deciderwheel' && <DeciderWheelTool />}
+        {activeTool === 'scratchcard' && <ScratchCardTool />}
+        {activeTool === 'drinkingdice' && <DrinkingDiceTool />}
+        {activeTool === 'drinkingcards' && <DrinkingCardsTool />}
       </main>
 
       {/* Footer */}
@@ -624,6 +647,64 @@ function AppContent() {
           border: 1px solid rgba(46, 125, 96, 0.12);
           padding: 4px 10px;
           border-radius: 6px;
+        }
+
+        /* Game Mode Styles */
+        .navbar.game-mode {
+          border-bottom: 2px dashed rgba(244, 63, 94, 0.25) !important;
+          background: rgba(255, 245, 246, 0.7) !important;
+          backdrop-filter: blur(12px) !important;
+        }
+
+        .navbar.game-mode .logo-text {
+          font-family: 'Fredoka', sans-serif !important;
+          color: #FF7597 !important;
+        }
+
+        .navbar.game-mode .logo-text span {
+          color: #E05476 !important;
+        }
+
+        .navbar.game-mode .nav-tab-btn.active {
+          background: #FFE4E6 !important;
+          border: 1.5px solid rgba(244, 63, 94, 0.25) !important;
+          color: #FF7597 !important;
+          font-family: 'Fredoka', sans-serif !important;
+          box-shadow: 2px 2px 0px 0px rgba(244, 63, 94, 0.1) !important;
+          border-radius: 99px !important;
+        }
+
+        .navbar.game-mode .nav-dropdown-menu {
+          background: rgba(255, 251, 252, 0.98) !important;
+          border: 2px solid rgba(244, 63, 94, 0.2) !important;
+          box-shadow: 0 10px 30px rgba(244, 63, 94, 0.08), 4px 4px 0px rgba(244, 63, 94, 0.1) !important;
+          border-radius: 20px !important;
+        }
+
+        .navbar.game-mode .dropdown-search-box input {
+          border-color: rgba(244, 63, 94, 0.12) !important;
+        }
+
+        .navbar.game-mode .dropdown-search-box input:focus {
+          border-color: rgba(244, 63, 94, 0.3) !important;
+        }
+
+        .navbar.game-mode .dropdown-item.active {
+          border-radius: 12px !important;
+          margin: 2px 6px !important;
+          padding: 8px 10px !important;
+          transition: var(--transition-bounce) !important;
+        }
+
+        .navbar.game-mode .dropdown-item.active:hover {
+          background: #FFE4E6 !important;
+          color: #FF7597 !important;
+          transform: translateX(3px) scale(1.02) !important;
+        }
+
+        .navbar.game-mode .dropdown-item-name {
+          font-family: 'Fredoka', sans-serif !important;
+          font-weight: 700 !important;
         }
       `}</style>
     </div>

@@ -14,7 +14,12 @@ import {
   PenLine,
   Scissors,
   QrCode,
-  Clock
+  Clock,
+  Heart,
+  RotateCw,
+  Gift,
+  Beer,
+  Award
 } from 'lucide-react';
 
 interface Tool {
@@ -26,6 +31,7 @@ interface Tool {
 }
 
 interface Category {
+  id?: string;
   title: string;
   description: string;
   icon: React.ComponentType<any>;
@@ -40,6 +46,7 @@ export const LandingPage: React.FC<LandingPageProps> = ({ onSelectTool }) => {
   const { t } = useLanguage();
   const categories: Category[] = [
     {
+      id: 'design',
       title: t('categories.design.title'),
       description: t('categories.design.desc'),
       icon: Palette,
@@ -89,6 +96,7 @@ export const LandingPage: React.FC<LandingPageProps> = ({ onSelectTool }) => {
       ]
     },
     {
+      id: 'dev',
       title: t('categories.dev.title'),
       description: t('categories.dev.desc'),
       icon: Code,
@@ -138,6 +146,7 @@ export const LandingPage: React.FC<LandingPageProps> = ({ onSelectTool }) => {
       ]
     },
     {
+      id: 'utilities',
       title: t('categories.utilities.title'),
       description: t('categories.utilities.desc'),
       icon: FileText,
@@ -164,8 +173,69 @@ export const LandingPage: React.FC<LandingPageProps> = ({ onSelectTool }) => {
           icon: QrCode,
         }
       ]
+    },
+    {
+      id: 'couple',
+      title: t('categories.couple.title'),
+      description: t('categories.couple.desc'),
+      icon: Heart,
+      tools: [
+        {
+          id: 'foodmatcher',
+          name: t('toolNames.foodmatcher'),
+          description: t('toolDescs.foodmatcher'),
+          status: 'available',
+          icon: Heart,
+        },
+        {
+          id: 'deciderwheel',
+          name: t('toolNames.deciderwheel'),
+          description: t('toolDescs.deciderwheel'),
+          status: 'available',
+          icon: RotateCw,
+        },
+        {
+          id: 'scratchcard',
+          name: t('toolNames.scratchcard'),
+          description: t('toolDescs.scratchcard'),
+          status: 'available',
+          icon: Gift,
+        }
+      ]
+    },
+    {
+      id: 'drinking_cat',
+      title: t('categories.drinking_cat.title'),
+      description: t('categories.drinking_cat.desc'),
+      icon: Beer,
+      tools: [
+        {
+          id: 'drinkingdice',
+          name: t('toolNames.drinkingdice'),
+          description: t('toolDescs.drinkingdice'),
+          status: 'available',
+          icon: Beer,
+        },
+        {
+          id: 'drinkingcards',
+          name: t('toolNames.drinkingcards'),
+          description: t('toolDescs.drinkingcards'),
+          status: 'available',
+          icon: Award,
+        }
+      ]
     }
   ];
+
+  const [activeTab, setActiveTab] = React.useState<'web' | 'games'>('web');
+
+  const filteredCategories = categories.filter(category => {
+    if (activeTab === 'web') {
+      return ['design', 'dev', 'utilities'].includes(category.id || '');
+    } else {
+      return ['couple', 'drinking_cat'].includes(category.id || '');
+    }
+  });
 
   return (
     <div className="landing-container">
@@ -183,18 +253,45 @@ export const LandingPage: React.FC<LandingPageProps> = ({ onSelectTool }) => {
         </p>
       </header>
 
-      {/* Grid of Categories - 2 Columns Layout for screen-fit compactness */}
+      {/* Tab Switcher */}
+      <div className="landing-tabs-container">
+        <button 
+          onClick={() => setActiveTab('web')}
+          className={`landing-tab-btn ${activeTab === 'web' ? 'active' : ''}`}
+        >
+          {t('tabs.webTools')}
+        </button>
+        <button 
+          onClick={() => setActiveTab('games')}
+          className={`landing-tab-btn ${activeTab === 'games' ? 'active' : ''}`}
+        >
+          {t('tabs.games')}
+        </button>
+      </div>
+
       <main className="categories-grid-row">
-        {categories.map((category) => {
+        {filteredCategories.map((category) => {
           const CategoryIcon = category.icon;
           return (
-            <section key={category.title} className="category-section glass">
+            <section 
+              key={category.title} 
+              className={`category-section glass ${
+                category.id === 'couple' 
+                  ? 'couple-category-box' 
+                  : category.id === 'drinking_cat' 
+                  ? 'drinking-cat-category-box' 
+                  : ''
+              }`}
+            >
               <div className="category-header">
                 <div className="category-icon-wrapper">
                   <CategoryIcon size={18} />
                 </div>
                 <div>
-                  <h2 className="category-title">{category.title}</h2>
+                  <h2 className="category-title">
+                    {category.title}
+                    {category.id === 'couple' && <span className="blink-heart"> 💖</span>}
+                  </h2>
                   <p className="category-desc">{category.description}</p>
                 </div>
               </div>
@@ -299,9 +396,9 @@ export const LandingPage: React.FC<LandingPageProps> = ({ onSelectTool }) => {
           gap: 28px;
         }
 
-        @media (min-width: 992px) {
+        @media (min-width: 768px) {
           .categories-grid-row {
-            grid-template-columns: repeat(3, 1fr);
+            grid-template-columns: repeat(2, 1fr);
             align-items: stretch;
           }
         }
@@ -478,6 +575,154 @@ export const LandingPage: React.FC<LandingPageProps> = ({ onSelectTool }) => {
             transform: scale(0.95);
             box-shadow: 0 0 0 0 rgba(34, 197, 94, 0);
           }
+        }
+
+        @keyframes pink-glow {
+          0%, 100% {
+            box-shadow: 0 0 10px rgba(244, 63, 94, 0.15), 4px 4px 0px 0px rgba(244, 63, 94, 0.1);
+            border-color: rgba(244, 63, 94, 0.25);
+          }
+          50% {
+            box-shadow: 0 0 25px rgba(244, 63, 94, 0.4), 4px 4px 0px 0px rgba(244, 63, 94, 0.15);
+            border-color: rgba(244, 63, 94, 0.45);
+          }
+        }
+        
+        @keyframes shimmer {
+          0% {
+            background-position: -200% 0;
+          }
+          100% {
+            background-position: 200% 0;
+          }
+        }
+        
+        @keyframes heartbeat {
+          0%, 100% { transform: scale(1); }
+          50% { transform: scale(1.25); }
+        }
+
+        /* Tab Switcher Styles */
+        .landing-tabs-container {
+          display: flex;
+          justify-content: center;
+          gap: 16px;
+          margin-bottom: 32px;
+          width: 100%;
+        }
+
+        .landing-tab-btn {
+          padding: 10px 24px;
+          border-radius: 99px;
+          border: 2px solid var(--card-border);
+          background: var(--card-bg);
+          color: var(--text-secondary);
+          font-family: 'Fredoka', sans-serif;
+          font-weight: 700;
+          font-size: 1.05rem;
+          cursor: pointer;
+          transition: var(--transition-bounce);
+          box-shadow: 2px 2px 0px rgba(0, 0, 0, 0.03);
+        }
+
+        .landing-tab-btn:hover {
+          transform: translateY(-2px);
+          border-color: var(--accent);
+          color: var(--accent);
+        }
+
+        .landing-tab-btn.active {
+          background: var(--accent);
+          color: white;
+          border-color: var(--accent);
+          box-shadow: 3px 3px 0px var(--text-primary);
+          transform: translateY(-2px);
+        }
+
+        /* Softened Couple Category Styles */
+        .couple-category-box {
+          background: linear-gradient(135deg, rgba(255, 251, 252, 0.9) 0%, rgba(255, 240, 243, 0.9) 100%) !important;
+          animation: pink-glow 3s infinite ease-in-out;
+          position: relative;
+          border-color: rgba(255, 117, 151, 0.25) !important;
+        }
+
+        .couple-category-box .tool-list-item {
+          background-color: rgba(255, 255, 255, 0.65) !important;
+          border-color: rgba(255, 117, 151, 0.15) !important;
+        }
+        
+        .couple-category-box .tool-list-item:hover {
+          background-color: rgba(255, 235, 240, 0.9) !important;
+          border-color: rgba(255, 117, 151, 0.4) !important;
+          transform: translateY(-2px);
+          box-shadow: 2px 2px 0px rgba(255, 117, 151, 0.12);
+        }
+
+        .couple-category-box .tool-icon-box {
+          background: rgba(255, 235, 240, 0.6) !important;
+          color: #FF7597 !important;
+          border-color: rgba(255, 117, 151, 0.2) !important;
+        }
+
+        .couple-category-box .compact-badge.status-active {
+          background: #FFEBF0 !important;
+          color: #FF7597 !important;
+          border-color: rgba(255, 117, 151, 0.2) !important;
+        }
+
+        .couple-category-box::before {
+          content: '';
+          position: absolute;
+          top: 0; right: 0; bottom: 0; left: 0;
+          background: linear-gradient(
+            90deg,
+            transparent,
+            rgba(255, 255, 255, 0.6),
+            transparent
+          );
+          background-size: 200% 100%;
+          animation: shimmer 4s infinite linear;
+          pointer-events: none;
+          border-radius: inherit;
+          opacity: 0.6;
+          z-index: 1;
+        }
+
+        .couple-category-box > * {
+          position: relative;
+          z-index: 2;
+        }
+
+        .blink-heart {
+          display: inline-block;
+          animation: heartbeat 1.2s infinite ease-in-out;
+        }
+
+        /* Drinking Category Box (Purple Theme!) */
+        .drinking-cat-category-box {
+          background: linear-gradient(135deg, rgba(250, 245, 255, 0.95) 0%, rgba(243, 232, 255, 0.95) 100%) !important;
+          border-color: rgba(168, 85, 247, 0.25) !important;
+          position: relative;
+        }
+        .drinking-cat-category-box .tool-list-item {
+          background-color: rgba(255, 255, 255, 0.65) !important;
+          border-color: rgba(168, 85, 247, 0.15) !important;
+        }
+        .drinking-cat-category-box .tool-list-item:hover {
+          background-color: rgba(243, 232, 255, 0.85) !important;
+          border-color: rgba(168, 85, 247, 0.4) !important;
+          transform: translateY(-2px);
+        }
+        .drinking-cat-category-box .tool-icon-box {
+          background: rgba(243, 232, 255, 0.6) !important;
+          color: #A855F7 !important;
+          border-color: rgba(168, 85, 247, 0.2) !important;
+        }
+        .drinking-cat-category-box .compact-badge.status-active {
+          background: rgba(243, 232, 255, 0.8) !important;
+          color: #A855F7 !important;
+          border-color: rgba(168, 85, 247, 0.2) !important;
         }
       `}</style>
     </div>
