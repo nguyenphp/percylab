@@ -12,7 +12,8 @@ export const translations = {
     heroSubtitle: "Không chỉ là các công cụ Dev & Design hữu ích, đây còn là thiên đường trò chơi party, couple vui nhộn dành cho thế hệ GenZ.",
     tabs: {
       webTools: "🛠️ Tiện ích Web",
-      games: "🎮 Trò chơi Giải trí"
+      games: "🎮 Trò chơi Giải trí",
+      photobooth: "📸 Photobooth"
     },
     categories: {
       design: {
@@ -34,6 +35,10 @@ export const translations = {
       drinking_cat: {
         title: "Party Games",
         desc: "Các trò chơi vòng quay sát phạt, xúc xắc ăn nhậu tưng bừng cùng hội bạn."
+      },
+      photobooth_studio: {
+        title: "Photobooth Studio",
+        desc: "Chụp ảnh tự động theo series, chọn khung & style, xuất film strip retro ngay trên trình duyệt."
       }
     },
     status: {
@@ -64,7 +69,12 @@ export const translations = {
       deciderwheel: "deciderwheel",
       scratchcard: "scratchcard",
       drinkingdice: "drinkingdice",
-      drinkingcards: "drinkingcards"
+      drinkingcards: "drinkingcards",
+      photobooth: "photobooth",
+      selfbooth: "selfbooth",
+      filterbooth: "filterbooth",
+      groupbooth: "groupbooth",
+      timerbooth: "timerbooth"
     },
     toolDescs: {
       grain: "Trình biên tập ảnh Web, áp dụng bộ lọc màu LUT và Polaroid hạt mịn.",
@@ -86,7 +96,12 @@ export const translations = {
       deciderwheel: "Vòng quay quyết định ăn gì/việc nhà kèm theo quyền phủ quyết thú vị.",
       scratchcard: "Thẻ cào ảo ẩn giấu thử thách, hoạt động hẹn hò và phần thưởng ngọt ngào.",
       drinkingdice: "Gieo xúc xắc ăn nhậu sát phạt cực kỳ lầy lội cùng bạn bè.",
-      drinkingcards: "Rút những thẻ bài thử thách ngẫu nhiên lầy lội hoặc lãng mạn."
+      drinkingcards: "Rút những thẻ bài thử thách ngẫu nhiên lầy lội hoặc lãng mạn.",
+      photobooth: "Bộ công cụ chụp ảnh tự động ngay trên trình duyệt — selfbooth, filterbooth và nhiều hơn nữa.",
+      selfbooth: "Chọn khung → tự động đếm ngược chụp liên tiếp → chọn filter & style → xuất film strip retro.",
+      filterbooth: "Chụp selfie tức thì với các bộ lọc màu film LUT đặc trưng theo phong cách retro.",
+      groupbooth: "Chụp ảnh nhóm tự động với hẹn giờ, ghép layout đôi hoặc lưới 4 người.",
+      timerbooth: "Hẹn giờ chụp ảnh tự động — đặt số lượng ảnh và khoảng cách, camera tự chụp không cần chạm."
     },
     // Base64 tool
     base64: {
@@ -252,7 +267,8 @@ export const translations = {
     heroSubtitle: "Not just useful Dev & Design utilities, but also a sweet paradise of fun party and couple games tailored for GenZ.",
     tabs: {
       webTools: "🛠️ Web Tools",
-      games: "🎮 Fun Games"
+      games: "🎮 Fun Games",
+      photobooth: "📸 Photobooth"
     },
     categories: {
       design: {
@@ -274,6 +290,10 @@ export const translations = {
       drinking_cat: {
         title: "Party Games",
         desc: "Fun drinking, truth-or-dare, and rolling dice games for group parties."
+      },
+      photobooth_studio: {
+        title: "Photobooth Studio",
+        desc: "Auto-capture photo sequences, pick frames & styles, and export retro film strips — right in your browser."
       }
     },
     status: {
@@ -304,7 +324,12 @@ export const translations = {
       deciderwheel: "deciderwheel",
       scratchcard: "scratchcard",
       drinkingdice: "drinkingdice",
-      drinkingcards: "drinkingcards"
+      drinkingcards: "drinkingcards",
+      photobooth: "photobooth",
+      selfbooth: "selfbooth",
+      filterbooth: "filterbooth",
+      groupbooth: "groupbooth",
+      timerbooth: "timerbooth"
     },
     toolDescs: {
       grain: "Web photo editor, LUT presets, and Polaroid style film grain effects.",
@@ -326,7 +351,12 @@ export const translations = {
       deciderwheel: "Chore and food decision wheel with interactive veto power.",
       scratchcard: "Scratch-off cards revealing sweet rewards, chores, and dating ideas.",
       drinkingdice: "Fun drinking dice roller with custom rules and 3D animations.",
-      drinkingcards: "Romantic and crazy truth-or-dare challenge cards deck."
+      drinkingcards: "Romantic and crazy truth-or-dare challenge cards deck.",
+      photobooth: "Browser-based photo booth tools — selfbooth, filterbooth, and more coming soon.",
+      selfbooth: "Pick a frame → auto-countdown capture → choose filter & style → export retro film strip.",
+      filterbooth: "Instant selfies with cinematic film LUT filters and retro-style color grading.",
+      groupbooth: "Group photo timer with duo or 4-up grid layouts — perfect for parties.",
+      timerbooth: "Timer-based auto-capture — set shot count and interval, camera fires hands-free."
     },
     // Base64 tool
     base64: {

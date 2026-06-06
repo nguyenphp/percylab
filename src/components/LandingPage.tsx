@@ -1,14 +1,14 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useLanguage } from '../context/LanguageContext';
-import { 
-  Image, 
-  Smartphone, 
-  Palette, 
-  Code, 
-  Sparkles, 
-  SmartphoneNfc, 
-  Layers, 
-  Sliders, 
+import {
+  Image,
+  Smartphone,
+  Palette,
+  Code,
+  Sparkles,
+  SmartphoneNfc,
+  Layers,
+  Sliders,
   FileJson,
   FileText,
   PenLine,
@@ -19,8 +19,14 @@ import {
   RotateCw,
   Gift,
   Beer,
-  Award
+  Award,
+  Camera,
+  Wand2,
+  Users,
+  Timer
 } from 'lucide-react';
+
+type ActiveTab = 'web' | 'games' | 'photobooth';
 
 interface Tool {
   id: string;
@@ -40,9 +46,10 @@ interface Category {
 
 interface LandingPageProps {
   onSelectTool: (toolId: string) => void;
+  initialTab?: ActiveTab;
 }
 
-export const LandingPage: React.FC<LandingPageProps> = ({ onSelectTool }) => {
+export const LandingPage: React.FC<LandingPageProps> = ({ onSelectTool, initialTab }) => {
   const { t } = useLanguage();
   const categories: Category[] = [
     {
@@ -92,7 +99,7 @@ export const LandingPage: React.FC<LandingPageProps> = ({ onSelectTool }) => {
           description: t('toolDescs.bgremove'),
           status: 'available',
           icon: Scissors,
-        }
+        },
       ]
     },
     {
@@ -224,17 +231,56 @@ export const LandingPage: React.FC<LandingPageProps> = ({ onSelectTool }) => {
           icon: Award,
         }
       ]
+    },
+    {
+      id: 'photobooth_studio',
+      title: t('categories.photobooth_studio.title'),
+      description: t('categories.photobooth_studio.desc'),
+      icon: Camera,
+      tools: [
+        {
+          id: 'selfbooth',
+          name: t('toolNames.selfbooth'),
+          description: t('toolDescs.selfbooth'),
+          status: 'available',
+          icon: Camera,
+        },
+        {
+          id: 'timerbooth',
+          name: t('toolNames.timerbooth'),
+          description: t('toolDescs.timerbooth'),
+          status: 'available',
+          icon: Timer,
+        },
+        {
+          id: 'filterbooth',
+          name: t('toolNames.filterbooth'),
+          description: t('toolDescs.filterbooth'),
+          status: 'available',
+          icon: Wand2,
+        },
+        {
+          id: 'groupbooth',
+          name: t('toolNames.groupbooth'),
+          description: t('toolDescs.groupbooth'),
+          status: 'available',
+          icon: Users,
+        }
+      ]
     }
   ];
 
-  const [activeTab, setActiveTab] = React.useState<'web' | 'games'>('web');
+  const [activeTab, setActiveTab] = React.useState<ActiveTab>(initialTab ?? 'web');
+
+  useEffect(() => {
+    if (initialTab) setActiveTab(initialTab);
+  }, [initialTab]);
 
   const filteredCategories = categories.filter(category => {
-    if (activeTab === 'web') {
-      return ['design', 'dev', 'utilities'].includes(category.id || '');
-    } else {
-      return ['couple', 'drinking_cat'].includes(category.id || '');
-    }
+    if (activeTab === 'web')        return ['design', 'dev', 'utilities'].includes(category.id ?? '');
+    if (activeTab === 'games')      return ['couple', 'drinking_cat'].includes(category.id ?? '');
+    if (activeTab === 'photobooth') return category.id === 'photobooth_studio';
+    return false;
   });
 
   return (
@@ -261,11 +307,17 @@ export const LandingPage: React.FC<LandingPageProps> = ({ onSelectTool }) => {
         >
           {t('tabs.webTools')}
         </button>
-        <button 
+        <button
           onClick={() => setActiveTab('games')}
           className={`landing-tab-btn ${activeTab === 'games' ? 'active' : ''}`}
         >
           {t('tabs.games')}
+        </button>
+        <button
+          onClick={() => setActiveTab('photobooth')}
+          className={`landing-tab-btn pb-tab ${activeTab === 'photobooth' ? 'active' : ''}`}
+        >
+          {t('tabs.photobooth')}
         </button>
       </div>
 
@@ -276,11 +328,10 @@ export const LandingPage: React.FC<LandingPageProps> = ({ onSelectTool }) => {
             <section 
               key={category.title} 
               className={`category-section glass ${
-                category.id === 'couple' 
-                  ? 'couple-category-box' 
-                  : category.id === 'drinking_cat' 
-                  ? 'drinking-cat-category-box' 
-                  : ''
+                category.id === 'couple'             ? 'couple-category-box'      :
+                category.id === 'drinking_cat'       ? 'drinking-cat-category-box':
+                category.id === 'photobooth_studio'  ? 'photobooth-category-box'  :
+                ''
               }`}
             >
               <div className="category-header">
@@ -723,6 +774,11 @@ export const LandingPage: React.FC<LandingPageProps> = ({ onSelectTool }) => {
           background: rgba(243, 232, 255, 0.8) !important;
           color: #A855F7 !important;
           border-color: rgba(168, 85, 247, 0.2) !important;
+        }
+
+        /* Photobooth category — full-width, same green accent as site */
+        .photobooth-category-box {
+          grid-column: 1 / -1;
         }
       `}</style>
     </div>

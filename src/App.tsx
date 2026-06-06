@@ -5,12 +5,12 @@ import { PaletteTool } from './tools/PaletteTool';
 import { GradioTool } from './tools/GradioTool';
 import { Base64Tool } from './tools/Base64Tool';
 import { LanguageProvider, useLanguage } from './context/LanguageContext';
-import { 
-  Sun, 
-  Moon, 
-  Smartphone, 
-  Palette, 
-  Code, 
+import {
+  Sun,
+  Moon,
+  Smartphone,
+  Palette,
+  Code,
   Sparkles,
   Home,
   ChevronDown,
@@ -30,7 +30,8 @@ import {
   RotateCw,
   Gift,
   Beer,
-  Award
+  Award,
+  Camera
 } from 'lucide-react';
 
 import { GrainTool } from './tools/GrainTool';
@@ -49,6 +50,10 @@ import { DeciderWheelTool } from './tools/DeciderWheelTool';
 import { ScratchCardTool } from './tools/ScratchCardTool';
 import { DrinkingDiceTool } from './tools/DrinkingDiceTool';
 import { DrinkingCardsTool } from './tools/DrinkingCardsTool';
+import { PhotoBoothTool } from './tools/PhotoBoothTool';
+import { TimerBoothTool } from './tools/TimerBoothTool';
+import { FilterBoothTool } from './tools/FilterBoothTool';
+import { GroupBoothTool } from './tools/GroupBoothTool';
 import logoImg from './assets/logo.png';
 
 const dropdownTools = [
@@ -71,12 +76,14 @@ const dropdownTools = [
   { id: 'deciderwheel', icon: RotateCw, statusClass: 'active', available: true },
   { id: 'scratchcard', icon: Gift, statusClass: 'active', available: true },
   { id: 'drinkingdice', icon: Beer, statusClass: 'active', available: true },
-  { id: 'drinkingcards', icon: Award, statusClass: 'active', available: true }
+  { id: 'drinkingcards', icon: Award,   statusClass: 'active', available: true },
+  { id: 'filterbooth',  icon: Camera,  statusClass: 'active', available: true }
 ];
 
 function AppContent() {
   const { lang, setLang, t } = useLanguage();
   const [activeTool, setActiveTool] = useState<string>('landing');
+  const [initialTab, setInitialTab] = useState<'web' | 'games' | 'photobooth'>('web');
   const [theme, setTheme] = useState<'light' | 'dark'>(() => {
     const saved = localStorage.getItem('percylab-theme');
     if (saved === 'light' || saved === 'dark') return saved;
@@ -112,12 +119,18 @@ function AppContent() {
         'grain', 'frame', 'polafiy', 'deeplink', 
         'splashgen', 'jsondiff', 'img2pdf',
         'esign', 'bgremove', 'qrcode', 'timestamp',
-        'foodmatcher', 'deciderwheel', 'scratchcard', 'drinkingdice', 'drinkingcards'
+        'foodmatcher', 'deciderwheel', 'scratchcard', 'drinkingdice', 'drinkingcards',
+        'selfbooth', 'timerbooth', 'filterbooth', 'groupbooth'
       ];
-      if (validTools.includes(hash)) {
+      if (hash === 'photobooth') {
+        setActiveTool('landing');
+        setInitialTab('photobooth');
+      } else if (validTools.includes(hash)) {
         setActiveTool(hash);
+        setInitialTab('web');
       } else {
         setActiveTool('landing');
+        setInitialTab('web');
       }
       // Reset scroll position to top
       window.scrollTo(0, 0);
@@ -264,7 +277,7 @@ function AppContent() {
 
       {/* Main Workspace */}
       <main className="main-content">
-        {activeTool === 'landing' && <LandingPage onSelectTool={selectTool} />}
+        {activeTool === 'landing' && <LandingPage onSelectTool={selectTool} initialTab={initialTab} />}
         
         {activeTool === 'iconset' && <IconsetTool />}
         {activeTool === 'palette' && <PaletteTool />}
@@ -286,6 +299,10 @@ function AppContent() {
         {activeTool === 'scratchcard' && <ScratchCardTool />}
         {activeTool === 'drinkingdice' && <DrinkingDiceTool />}
         {activeTool === 'drinkingcards' && <DrinkingCardsTool />}
+        {activeTool === 'selfbooth' && <PhotoBoothTool />}
+        {activeTool === 'timerbooth' && <TimerBoothTool />}
+        {activeTool === 'filterbooth' && <FilterBoothTool />}
+        {activeTool === 'groupbooth' && <GroupBoothTool />}
       </main>
 
       {/* Footer */}
@@ -706,6 +723,8 @@ function AppContent() {
           font-family: 'Fredoka', sans-serif !important;
           font-weight: 700 !important;
         }
+
+
       `}</style>
     </div>
   );
