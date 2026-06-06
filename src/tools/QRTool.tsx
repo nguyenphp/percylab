@@ -34,7 +34,7 @@ export const QRTool: React.FC = () => {
   const { lang } = useLanguage();
   const vi = lang === 'vi';
 
-  const [text, setText] = useState('https://percylab.dev');
+  const [text, setText] = useState('https://percylab.space');
   const [dotStyle, setDotStyle] = useState<DotStyle>('rounded');
   const [fgColor, setFgColor] = useState('#1a1a1a');
   const [bgColor, setBgColor] = useState('#ffffff');
