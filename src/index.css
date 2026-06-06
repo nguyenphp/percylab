@@ -296,6 +296,29 @@ body {
   box-shadow: 0 0 0 3px rgba(34, 197, 94, 0.15);
 }
 
+/* Dark mode hover overrides — light rgba values are invisible on dark bg */
+[data-theme="dark"] .btn-secondary:hover {
+  background: rgba(16, 185, 129, 0.15);
+}
+
+[data-theme="dark"] .dropzone:hover {
+  background: rgba(16, 185, 129, 0.1);
+  border-color: var(--accent);
+}
+
+[data-theme="dark"] .nav-tab-btn:hover {
+  background: rgba(16, 185, 129, 0.1);
+}
+
+[data-theme="dark"] .dropdown-item.active:hover {
+  background: rgba(16, 185, 129, 0.1);
+}
+
+[data-theme="dark"] .lang-toggle-btn:hover,
+[data-theme="dark"] .theme-toggle-btn:hover {
+  background: rgba(16, 185, 129, 0.12);
+}
+
 /* Animations */
 @keyframes fadeIn {
   from {
